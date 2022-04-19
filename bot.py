@@ -33,6 +33,11 @@ async def terminate(ctx):
 
 
 @client.command()
+async def hello(ctx):
+    await ctx.send("Hey There, Ready for some recommendations?")
+
+
+@client.command()
 async def recommend(ctx, *bookname):
     if not bookname:
         return
