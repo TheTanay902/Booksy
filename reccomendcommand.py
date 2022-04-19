@@ -36,6 +36,7 @@ def recbok(mybook):
     ISBN = ratings_pivot.columns
     # print(ratings_pivot.shape)
     # ratings_pivot.head()
+    hahahha = "hahahah"
     combine_book_rating = pd.merge(ratings, books, on='ISBN')
     columns = ['yearOfPublication', 'publisher',
                'bookAuthor', 'imageUrlS', 'imageUrlM', 'imageUrlL']

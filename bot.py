@@ -16,7 +16,7 @@ async def on_ready():
 
     if not is_client_running:
         is_client_running = True
-        print(f"{client.user.name} is ready")
+        print(f"{client.user.name} is ready to go")
 
 
 @client.event
