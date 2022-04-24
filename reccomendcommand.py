@@ -88,6 +88,6 @@ def recbok(mybook):
             listreturner.append('Recommendations for {0}:\n'.format(
                 pivotedmatrix.index[query_index]))
         else:
-            listreturner.append('{0}: {1}, with distance of {2}:'.format(
-                i, pivotedmatrix.index[indices.flatten()[i]], distances.flatten()[i]))
+            listreturner.append('{0}: {1}'.format(
+                i, pivotedmatrix.index[indices.flatten()[i]]))
     return listreturner
