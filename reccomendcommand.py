@@ -75,6 +75,7 @@ def recbok(mybook):
     model_knn = NearestNeighbors(metric='cosine', algorithm='brute')
     model_knn.fit(finalfit)
     query_index = 98
+    urllist = []
     listreturner = []
     for i in range(99):
         newstring = pivotedmatrix.index[i]
@@ -90,4 +91,11 @@ def recbok(mybook):
         else:
             listreturner.append('{0}: {1}'.format(
                 i, pivotedmatrix.index[indices.flatten()[i]]))
-    return listreturner
+            for j in range(271360):
+                if pivotedmatrix.index[indices.flatten()][i] == books['bookTitle'][j]:
+                    print(
+                        f"{pivotedmatrix.index[indices.flatten()][i]} is appended with the URl {books['imageUrlL'][j]}")
+                    urllist.append(books['imageUrlL'][j])
+                    break
+
+    return listreturner, urllist

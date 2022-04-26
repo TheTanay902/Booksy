@@ -1,9 +1,14 @@
+from ast import Await
+
+from matplotlib import image
+from matplotlib.pyplot import colorbar, title
 from dotenv import load_dotenv
 from tabnanny import check
 import discord
 import os
 from discord.ext import commands
 from reccomendcommand import recbok
+from discord.embeds import Embed
 client = discord.Client()
 client = commands.Bot(command_prefix="&")
 is_client_running = False
@@ -43,9 +48,14 @@ async def recommend(ctx, *bookname):
         return
 
     book = " ".join(bookname)
-    mylist = recbok(book)
-    for i in mylist:
-        await ctx.send(i)
+    mylist, urllist = recbok(book)
+    await ctx.send(mylist[0])
+    mylist.pop(0)
+    for eachbook, eachurl in zip(mylist, urllist):
+        smalleembed = Embed(title=eachbook, color=discord.Color.random())
+        smalleembed.set_image(url=eachurl)
+        await ctx.send(embed=smalleembed)
+
 
 TOKEN = os.getenv("TOKEN")
 client.run(TOKEN)
